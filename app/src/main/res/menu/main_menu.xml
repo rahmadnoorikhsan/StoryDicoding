@@ -5,6 +5,10 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_more">
         <menu>
+            <item android:id="@+id/btn_maps"
+                android:title="@string/maps"/>
+            <item android:id="@+id/btn_language"
+                android:title="@string/select_language" />
             <item android:id="@+id/btn_logout"
                 android:title="@string/logout" />
         </menu>
