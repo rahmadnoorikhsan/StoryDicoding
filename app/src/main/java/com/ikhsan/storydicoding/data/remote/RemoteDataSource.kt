@@ -18,7 +18,7 @@ class RemoteDataSource(private val apiService: ApiService) {
         return apiService.login(email, password)
     }
 
-    suspend fun getAllStory(token: String, page: Int? = null, size: Int? = null, location: Int = 0): StoryResponse {
+    suspend fun getStory(token: String, page: Int? = null, size: Int? = null, location: Int = 0): StoryResponse {
         return apiService.getAllStory(token, page, size, location)
     }
 

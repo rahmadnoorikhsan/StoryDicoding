@@ -1,6 +1,7 @@
 package com.ikhsan.storydicoding.di
 
 import android.content.Context
+import com.ikhsan.storydicoding.data.local.database.StoryDatabase
 import com.ikhsan.storydicoding.data.local.datastore.UserPreference
 import com.ikhsan.storydicoding.data.remote.RemoteDataSource
 import com.ikhsan.storydicoding.data.remote.retrofit.ApiConfig
@@ -19,6 +20,7 @@ object Injection {
         val apiService = ApiConfig.getApiService()
         val remoteDataSource = RemoteDataSource(apiService)
         val userPreference = UserPreference.getInstance(context)
-        return StoryRepository(remoteDataSource, userPreference)
+        val storyDatabase = StoryDatabase.getDatabase(context)
+        return StoryRepository(remoteDataSource, userPreference, apiService, storyDatabase)
     }
 }

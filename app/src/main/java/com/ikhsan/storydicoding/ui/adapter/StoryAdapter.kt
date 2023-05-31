@@ -2,15 +2,15 @@ package com.ikhsan.storydicoding.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.ikhsan.storydicoding.data.remote.response.StoryItem
+import com.ikhsan.storydicoding.data.local.entity.StoryEntity
 import com.ikhsan.storydicoding.databinding.ItemStoryBinding
 import com.ikhsan.storydicoding.util.withDateFormat
 
-class StoryAdapter: ListAdapter<StoryItem, StoryAdapter.ViewHolder>(DIFF_CALLBACK) {
+class StoryAdapter: PagingDataAdapter<StoryEntity, StoryAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     private var onItemClickCallback: OnItemClickCallback? = null
 
@@ -21,11 +21,13 @@ class StoryAdapter: ListAdapter<StoryItem, StoryAdapter.ViewHolder>(DIFF_CALLBAC
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val story = getItem(position)
-        holder.storyData(story)
+        if (story != null) {
+            holder.storyData(story)
+        }
     }
 
     inner class ViewHolder(private val binding: ItemStoryBinding): RecyclerView.ViewHolder(binding.root) {
-        fun storyData(data: StoryItem) {
+        fun storyData(data: StoryEntity) {
             binding.apply {
                 root.setOnClickListener {
                     onItemClickCallback?.onItemClicked(data)
@@ -44,17 +46,17 @@ class StoryAdapter: ListAdapter<StoryItem, StoryAdapter.ViewHolder>(DIFF_CALLBAC
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: StoryItem)
+        fun onItemClicked(data: StoryEntity)
     }
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<StoryItem>() {
-            override fun areItemsTheSame(oldItem: StoryItem, newItem: StoryItem): Boolean {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<StoryEntity>() {
+            override fun areItemsTheSame(oldItem: StoryEntity, newItem: StoryEntity): Boolean {
                 return oldItem.id == newItem.id
 
             }
 
-            override fun areContentsTheSame(oldItem: StoryItem, newItem: StoryItem): Boolean {
+            override fun areContentsTheSame(oldItem: StoryEntity, newItem: StoryEntity): Boolean {
                 return oldItem == newItem
 
             }
