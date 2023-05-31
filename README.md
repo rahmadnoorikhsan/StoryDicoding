@@ -10,12 +10,14 @@ The First &amp; Final Submission on Belajar Pengembangan Aplikasi Android Interm
         <td><img src="screenshot/Screen Record.gif" align="center" alt="4"</td>
         <td><img src="screenshot/Splash.jpg" align="center" alt="4"</td>
         <td><img src="screenshot/Sign in.jpg" align="center" alt="4"</td>
-        <td><img src="screenshot/Sign up.jpg" align="center" alt="4"</td>
     </tr>
     <tr>
+        <td><img src="screenshot/Sign up.jpg" align="center" alt="4"</td>
         <td><img src="screenshot/Home Screen.jpg" align="center" alt="4"</td>
         <td><img src="screenshot/Detail.jpg" align="center" alt="4"</td>
+    </tr>
+    <tr>
         <td><img src="screenshot/Camera.jpg" align="center" alt="4"</td>
         <td><img src="screenshot/Maps.jpg" align="center" alt="4"</td>
-    </tr>
+   </tr>
 <table>
